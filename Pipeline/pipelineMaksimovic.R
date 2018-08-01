@@ -1,8 +1,16 @@
+###############################################################################
+# Source: A cross-package Bioconductor workflow for analysing methylation
+# array data [version 3; referees: 4 approved]
+# Authors: Jovana Maksimovic, Belinda Phipson, Alicia Oshlack
+###############################################################################
+
 # the URL for the data download
 url <- "https://ndownloader.figshare.com/files/7896205"
+
 # download the data
 if(!file.exists("methylAnalysisDataV3.tar.gz")){
 } download.file(url, destfile="methylAnalysisDataV3.tar.gz", method="auto")
+
 # extract the data
 if(!file.exists("./data")){
   untar("methylAnalysisDataV3.tar.gz", exdir=".", compressed="gzip")
