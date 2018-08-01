@@ -9,7 +9,8 @@ url <- "https://ndownloader.figshare.com/files/7896205"
 
 # download the data
 if(!file.exists("methylAnalysisDataV3.tar.gz")){
-} download.file(url, destfile="methylAnalysisDataV3.tar.gz", method="auto")
+  download.file(url, destfile="methylAnalysisDataV3.tar.gz", method="auto")
+}
 
 # extract the data
 if(!file.exists("./data")){
@@ -18,25 +19,30 @@ if(!file.exists("./data")){
 
 # set up a path to the data directory
 dataDirectory <- "./data"
+
 # list the files
 list.files(dataDirectory, recursive=TRUE)
 
 # load packages required for analysis
-library(limma)
-library(minfi) library(IlluminaHumanMethylation450kanno.ilmn12.hg19) library(IlluminaHumanMethylation450kmanifest) library(RColorBrewer)
-library(missMethyl)
-library(matrixStats)
-library(minfiData)
-library(Gviz)
-library(DMRcate)
-library(stringr)
+library("limma")
+library("minfi") 
+library("IlluminaHumanMethylation450kanno.ilmn12.hg19") 
+library("IlluminaHumanMethylation450kmanifest") 
+library("RColorBrewer")
+library("missMethyl")
+library("matrixStats")
+library("minfiData")
+library("Gviz")
+library("DMRcate")
+library("stringr")
 
 # get the 450k annotation data
-ann450k = getAnnotation(IlluminaHumanMethylation450kanno.ilmn12.hg19)
+ann450k <- getAnnotation(IlluminaHumanMethylation450kanno.ilmn12.hg19)
 head(ann450k)
 
 # read in the sample sheet for the experiment
-targets <- read.metharray.sheet(dataDirectory, pattern="SampleSheet.csv") ## [read.metharray.sheet] Found the following CSV files:
+targets <- read.metharray.sheet(dataDirectory, pattern="SampleSheet.csv")
+## [read.metharray.sheet] Found the following CSV files:
 ## [1] "./data/SampleSheet.csv"
 targets
 
@@ -56,17 +62,41 @@ head(detP)
 # examine mean detection p-values across all samples to identify any failed samples
 pal <- brewer.pal(8,"Dark2")
 par(mfrow=c(1,2))
-barplot(colMeans(detP), col=pal[factor(targets$Sample_Group)], las=2,
-        cex.names=0.8,ylab="Mean detection p-values")
-abline(h=0.01,col="red")
-legend("topleft", legend=levels(factor(targets$Sample_Group)), fill=pal,
-       bg="white")
-barplot(colMeans(detP), col=pal[factor(targets$Sample_Group)], las=2,
-        cex.names=0.8, ylim = c(0,0.002), ylab="Mean detection p-values")
-legend("topleft", legend=levels(factor(targets$Sample_Group)), fill=pal, bg="white")
+barplot(
+  colMeans(detP), 
+  col = pal[factor(targets$Sample_Group)], 
+  las = 2,
+  cex.names = 0.8,
+  ylab = "Mean detection p-values"
+)
+abline(h = 0.01, col = "red")
+legend(
+  "topleft", 
+  legend = levels(factor(targets$Sample_Group)),
+  fill = pal,
+  bg = "white"
+)
+barplot(
+  colMeans(detP), 
+  col = pal[factor(targets$Sample_Group)],
+  las = 2,
+  cex.names = 0.8, 
+  ylim = c(0,0.002), 
+  ylab = "Mean detection p-values"
+)
+legend(
+  "topleft", 
+  legend = levels(factor(targets$Sample_Group)), 
+  fill = pal, 
+  bg = "white"
+)
 
-qcReport(rgSet, sampNames=targets$ID, sampGroups=targets$Sample_Group,
-         pdf="qcReport.pdf")
+qcReport(
+  rgSet, 
+  sampNames = targets$ID,
+  sampGroups = targets$Sample_Group,
+  pdf = "qcReport.pdf"
+)
 
 # remove poor quality samples
 keep <- colMeans(detP) < 0.05
@@ -82,49 +112,109 @@ detP <- detP[,keep]
 dim(detP)
 ## [1] 485512  10
 
-
 # normalize the data; this results in a GenomicRatioSet object
 mSetSq <- preprocessQuantile(rgSet)
-
 
 # create a MethylSet object from the raw data for plotting
 mSetRaw <- preprocessRaw(rgSet)
 # visualise what the data looks like before and after normalisation
-par(mfrow=c(1,2))
-densityPlot(rgSet, sampGroups=targets$Sample_Group,main="Raw", legend=FALSE)
-legend("top", legend = levels(factor(targets$Sample_Group)),
-       text.col=brewer.pal(8,"Dark2"))
-densityPlot(getBeta(mSetSq), sampGroups=targets$Sample_Group,
-            main="Normalized", legend=FALSE)
-legend("top", legend = levels(factor(targets$Sample_Group)),
-       text.col=brewer.pal(8,"Dark2"))
+par(mfrow = c(1,2))
+densityPlot(
+  rgSet, 
+  sampGroups = targets$Sample_Group,
+  main = "Raw",
+  legend = FALSE
+)
+legend(
+  "top", 
+  legend = levels(factor(targets$Sample_Group)),
+  text.col = brewer.pal(8,"Dark2")
+)
+densityPlot(
+  getBeta(mSetSq), 
+  sampGroups = targets$Sample_Group,
+  main = "Normalized",
+  legend = FALSE
+)
+legend(
+  "top",
+  legend = levels(factor(targets$Sample_Group)),
+  text.col = brewer.pal(8,"Dark2")
+)
 
 # MDS plots to look at largest sources of variation
-par(mfrow=c(1,2))
-plotMDS(getM(mSetSq), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Group)])
-legend("top", legend=levels(factor(targets$Sample_Group)), text.col=pal,
-       bg="white", cex=0.7)
-plotMDS(getM(mSetSq), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Source)])
-legend("top", legend=levels(factor(targets$Sample_Source)), text.col=pal,
-       bg="white", cex=0.7)
-
+par(mfrow = c(1,2))
+plotMDS(
+  getM(mSetSq), 
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Group)]
+)
+legend(
+  "top", 
+  legend = levels(factor(targets$Sample_Group)), 
+  text.col = pal,
+  bg = "white", 
+  cex = 0.7
+)
+plotMDS(
+  getM(mSetSq),
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Source)]
+)
+legend(
+  "top", 
+  legend = levels(factor(targets$Sample_Source)),
+  text.col = pal,
+  bg = "white", 
+  cex = 0.7
+)
 
 # Examine higher dimensions to look at other sources of variation
-par(mfrow=c(1,3))
-plotMDS(getM(mSetSq), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Group)], dim=c(1,3))
-legend("top", legend=levels(factor(targets$Sample_Group)), text.col=pal,
-       cex=0.7, bg="white")
-plotMDS(getM(mSetSq), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Group)], dim=c(2,3))
-legend("topleft", legend=levels(factor(targets$Sample_Group)), text.col=pal,
-       cex=0.7, bg="white")
-plotMDS(getM(mSetSq), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Group)], dim=c(3,4))
-legend("topright", legend=levels(factor(targets$Sample_Group)), text.col=pal,
-       cex=0.7, bg="white")
+par(mfrow = c(1,3))
+plotMDS(
+  getM(mSetSq), 
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Group)], 
+  dim = c(1,3)
+)
+legend(
+  "top", 
+  legend = levels(factor(targets$Sample_Group)),
+  text.col = pal,
+  cex = 0.7, 
+  bg = "white"
+)
+plotMDS(
+  getM(mSetSq), 
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Group)],
+  dim = c(2,3)
+)
+legend(
+  "topleft", 
+  legend = levels(factor(targets$Sample_Group)), 
+  text.col = pal,
+  cex = 0.7,
+  bg = "white"
+)
+plotMDS(
+  getM(mSetSq),
+  top = 1000,
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Group)],
+  dim = c(3,4)
+)
+legend(
+  "topright", 
+  legend = levels(factor(targets$Sample_Group)),
+  text.col = pal,
+  cex = 0.7,
+  bg = "white"
+)
 
 
 # ensure probes are in the same order in the mSetSq and detP objects
@@ -137,37 +227,58 @@ mSetSqFlt <- mSetSq[keep,]
 mSetSqFlt
 
 # if your data includes males and females, remove probes on the sex chromosomes
-keep <- !(featureNames(mSetSqFlt) %in% ann450k$Name[ann450k$chr %in%
-                                                      table(keep)
-                                                    mSetSqFlt <- mSetSqFlt[keep,]
-                                                    c("chrX","chrY")])
-
+keep <- !(featureNames(mSetSqFlt) %in% ann450k$Name[
+  ann450k$chr %in% c("chrX","chrY")])
+table(keep)
+mSetSqFlt <- mSetSqFlt[keep,]
+                                                    
 # remove probes with SNPs at CpG site
 mSetSqFlt <- dropLociWithSnps(mSetSqFlt)
 mSetSqFlt
 
-
 # exclude cross reactive probes
-xReactiveProbes <- read.csv(file=paste(dataDirectory, "48639-non-specific-probes-Illumina450k.csv",
-                                       sep="/"), stringsAsFactors=FALSE)
+xReactiveProbes <- read.csv(
+  file = paste(
+    dataDirectory, 
+    "48639-non-specific-probes-Illumina450k.csv",
+    sep="/"), 
+  stringsAsFactors = FALSE
+)
 keep <- !(featureNames(mSetSqFlt) %in% xReactiveProbes$TargetID)
 table(keep)
-
 
 mSetSqFlt <- mSetSqFlt[keep,]
 mSetSqFlt
 
-
 par(mfrow=c(1,2))
-plotMDS(getM(mSetSqFlt), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Group)], cex=0.8)
-legend("right", legend=levels(factor(targets$Sample_Group)), text.col=pal,
-       cex=0.65, bg="white")
-plotMDS(getM(mSetSqFlt), top=1000, gene.selection="common",
-        col=pal[factor(targets$Sample_Source)])
-legend("right", legend=levels(factor(targets$Sample_Source)), text.col=pal,
-       cex=0.7, bg="white")
-par(mfrow=c(1,3))
+plotMDS(
+  getM(mSetSqFlt), 
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Group)], 
+  cex = 0.8
+)
+legend(
+  "right", 
+  legend = levels(factor(targets$Sample_Group)), 
+  text.col = pal,
+  cex = 0.65, 
+  bg = "white"
+)
+plotMDS(
+  getM(mSetSqFlt), 
+  top = 1000, 
+  gene.selection = "common",
+  col = pal[factor(targets$Sample_Source)]
+)
+legend(
+  "right", 
+  legend = levels(factor(targets$Sample_Source)), 
+  text.col = pal,
+  cex = 0.7, 
+  bg = "white"
+)
+par(mfrow = c(1,3))
 # Examine higher dimensions to look at other sources of variation plotMDS(getM(mSetSqFlt), top=1000, gene.selection="common",
 col=pal[factor(targets$Sample_Source)], dim=c(1,3))
 legend("right", legend=levels(factor(targets$Sample_Source)), text.col=pal,
