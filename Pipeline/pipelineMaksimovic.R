@@ -508,26 +508,26 @@ gTrack <- GenomeAxisTrack(
   fontcolor = "black"
 )
 
-##Ojo da error la próxima línea
-rTrack <- UcscTrack(
-  genome = gen, 
-  chromosome = chrom,
-  track = "refGene",
-  from = minbase,
-  to = maxbase,
-  trackType = "GeneRegionTrack",
-  rstarts = "exonStarts",
-  rends = "exonEnds",
-  gene = "name",
-  symbol = "name2",
-  transcript = "name",
-  strand = "strand",
-  fill = "darkblue",
-  stacking = "squish",
-  name = "RefSeq",
-  showId = TRUE,
-  geneSymbol = TRUE
-)
+# ##Ojo da error la próxima línea
+# rTrack <- UcscTrack(
+#   genome = gen, 
+#   chromosome = chrom,
+#   track = "refGene",
+#   from = minbase,
+#   to = maxbase,
+#   trackType = "GeneRegionTrack",
+#   rstarts = "exonStarts",
+#   rends = "exonEnds",
+#   gene = "name",
+#   symbol = "name2",
+#   transcript = "name",
+#   strand = "strand",
+#   fill = "darkblue",
+#   stacking = "squish",
+#   name = "RefSeq",
+#   showId = TRUE,
+#   geneSymbol = TRUE
+# )
 
 ann450kOrd <- ann450kSub[order(ann450kSub$chr, ann450kSub$pos),]
 head(ann450kOrd)
@@ -685,7 +685,8 @@ age.mSetSqFlt <- age.mSetSqFlt[keep,]
 age.mVals <- getM(age.mSetSqFlt)
 design <- model.matrix(~factor(age.targets$Sample_Group))
 # Fit the model for differential variability
-# specifying the intercept and age as the grouping factor fitvar <- varFit(age.mVals, design = design, coef = c(1,2))
+# specifying the intercept and age as the grouping factor 
+fitvar <- varFit(age.mVals, design = design, coef = c(1,2))
 # Summary of differential variability
 summary(decideTests(fitvar))
 
@@ -716,7 +717,10 @@ par(mfrow=c(1,1))
 a = cellCounts[age.targets$Sample_Group == "NewBorns",]
 b = cellCounts[age.targets$Sample_Group == "OLD",]
 boxplot(a, at=0:5*3 + 1, xlim=c(0, 18), ylim=range(a, b), xaxt="n",
-        col=age.pal[1], main="", ylab="Cell type proportion") boxplot(b, at=0:5*3 + 2, xaxt="n", add=TRUE, col=age.pal[2]) axis(1, at=0:5*3 + 1.5, labels=colnames(a), tick=TRUE) legend("topleft", legend=c("NewBorns","OLD"), fill=age.pal)
+        col=age.pal[1], main="", ylab="Cell type proportion") 
+boxplot(b, at=0:5*3 + 2, xaxt="n", add=TRUE, col=age.pal[2]) 
+axis(1, at=0:5*3 + 1.5, labels=colnames(a), tick=TRUE) 
+legend("topleft", legend=c("NewBorns","OLD"), fill=age.pal)
 
 
 sessionInfo()
