@@ -1,0 +1,13 @@
+Sample_Name,Sample_Well,Sample_Source,Sample_Group,Sample_Label,Pool_ID,Sentrix_ID,Sentrix_Position
+1,NA,IPF Rapidly lung fibroblast 1-1,IPF_Rapidly,IPF_Rapidly,NA,7539308024,R01C01
+2,NA,IPF Rapidly lung fibroblast 1-2,IPF_Rapidly,IPF_Rapidly,NA,7539308024,R02C01
+3,NA,IPF Rapidly lung fibroblast 1-3,IPF_Rapidly,IPF_Rapidly,NA,7539308024,R03C01
+4,NA,IPF Rapidly lung fibroblast 1-4,IPF_Rapidly,IPF_Rapidly,NA,7539308024,R04C01
+5,NA,IPF Slowly lung fibroblast 2-1,IPF_Slowly,IPF_Slowly,NA,7539308024,R05C01
+6,NA,IPF Slowly lung fibroblast 2-2,IPF_Slowly,IPF_Slowly,NA,7539308024,R06C01
+7,NA,IPF Slowly lung fibroblast 2-3,IPF_Slowly,IPF_Slowly,NA,7539308024,R01C02
+8,NA,IPF Slowly lung fibroblast 2-4,IPF_Slowly,IPF_Slowly,NA,7539308024,R02C02
+9,NA,Normal lung fibroblast 1,Normal,Normal,NA,7539308024,R03C02
+10,NA,Normal lung fibroblast 2,Normal,Normal,NA,7539308024,R04C02
+11,NA,Normal lung fibroblast 3,Normal,Normal,NA,7539308024,R05C02
+12,NA,Normal lung fibroblast 4,Normal,Normal,NA,7539308024,R06C02
