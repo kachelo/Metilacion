@@ -44,5 +44,14 @@ Pipeline/methylAnalysisDataV3.tar.gz
 Metilacion/data/GSE107226_RAW/*.idat.gz
 Metilacion/data/GSE107226_RAW/GPL13534*.gz
 
+Metilacion/data/Maksimovic/data/5975827018
+Metilacion/data/Maksimovic/data/6264509100
+Metilacion/data/Maksimovic/data/*.bed
+Metilacion/data/Maksimovic/data/*.rdata
+Metilacion/data/Maksimovic/data/*.Rdata
+Metilacion/data/Maksimovic/data/*.txt
+Metilacion/data/Maksimovic/data/
+
+
 
 
