@@ -2,16 +2,19 @@ Package: MethylCheckDistr
 Type: Package
 Title: Check the types of distributions of methylation signals
 Version: 0.1.0
-Author: María Semiramis Castro Jaimes, Cristobal Fresno Rodriguez, José Angel Islas Angiano, David Felipe Rendón Luna
+Author: María Semiramis Castro Jaimes, Cristóbal Fresno Rodríguez,
+    José Angel Islas Angiano, David Felipe Rendón Luna
 Maintainer: Semiramis <semiramis.cj@gmail.com>
 Description: This package is designed to work with the workflow published by 
-Oshlack et al.(doi:10.12688/f1000research.8839.3). Methylation array data from Illumina Infinium 450k is analized.
-   The original pipeline analize quality control, filtering, normalization, data exploration and statistical testing 
-for probe-wise differential methylation. This package is designed to evaluate the probe distribution, classify 
-them according to CpG position and check if the distributions change on different experimental conditions. 
+    Oshlack et al.(doi:10.12688/f1000research.8839.3). Methylation array data
+    from Illumina Infinium 450k is analized.The original pipeline analize
+    quality control, filtering, normalization, data exploration and statistical
+    testing for probe-wise differential methylation. This package is designed
+    to evaluate the probe distribution, classify them according to CpG position
+    and check if the distributions change on different experimental conditions. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Suggests: knitr,
-    rmarkdown, BiocStyle
+Suggests: knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
+RoxygenNote: 6.1.0
