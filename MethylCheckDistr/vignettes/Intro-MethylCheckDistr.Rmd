@@ -3,12 +3,12 @@ title: "Check the types of distributions of methylation signals"
 author: 
 - name: "María Semiramis Castro Jaimes"
   affiliation: "Centro de Ciencias Genómicas, Universidad Nacional Autónoma de México"
-- name: "Cristobal Fresno Rodriguez"
+- name: "Cristóbal Fresno Rodríguez"
   affiliation: "Instituto Nacional de Medicina Genómica" 
 - name: "José Angel Islas Angiano"
   affiliation: "Universidad Autónoma de Sinaloa" 
 - name: "David Felipe Rendón Luna"
-  affiliation: "Instituto de Biotecnología, Uiversidad Nacional Autónoma de México"  
+  affiliation: "Instituto de Biotecnología, Universidad Nacional Autónoma de México"  
 date: "August, 2018"
 output: BiocStyle::html_document
 vignette: >
