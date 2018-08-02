@@ -1,0 +1,45 @@
+---
+title: "Check the types of distributions of methylation signals"
+author: 
+- name: "María Semiramis Castro Jaimes"
+  affiliation: "Centro de Ciencias Genómicas, Universidad Nacional Autónoma de México"
+- name: "Cristóbal Fresno Rodríguez"
+  affiliation: "Instituto Nacional de Medicina Genómica" 
+- name: "José Angel Islas Angiano"
+  affiliation: "Universidad Autónoma de Sinaloa" 
+- name: "David Felipe Rendón Luna"
+  affiliation: "Instituto de Biotecnología, Universidad Nacional Autónoma de México"  
+date: "August, 2018"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{Check the types of distributions of methylation signals}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+#INTRODUCTION
+
+##Description
+
+This package is designed to work with the workflow published by Oshlack et al.(   doi:10.12688/f1000research.8839.3). Methylation array data from Illumina Infinium 450k is analized. The original pipeline analize quality control, filtering, normalization, data exploration and statistical testing for probe-wise differential methylation. This package is designed to evaluate the probe distribution, classify them according to CpG position and check if the distributions change on different experimental conditions. 
+
+##Dependencies
+This package depends on the libraries _limma_, _minfi_, _IlluminaHumanMethylation450kanno.ilmn12.hg19_,  _IlluminaHumanMethylation450kmanifest_, _RColorBrewer_, _missMethyl_, _matrixStats_, _minfiData_, _Gviz_, _DMRcate_ and _stringr_
+
+
+#DATA REQUIREMENT
+You must have:
+
+1. The methylation array data as a [filename].tar.gz. The script will extract the files from the tar file.
+2. The CSV file that contains Sample_Name, Sample_Well, Sample_Source, Sample_Group, Sample_Label, Pool_ID, Sentrix_ID and Sentrix_Position
+
+
+#USAGE
+
