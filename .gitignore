@@ -40,4 +40,9 @@ Pipeline/data/
 Pipeline/
 Pipeline/methylAnalysisDataV3.tar.gz
 
+*data from GEO
+Metilacion/data/GSE107226_RAW/*.idat.gz
+Metilacion/data/GSE107226_RAW/GPL13534*.gz
+
+
 
