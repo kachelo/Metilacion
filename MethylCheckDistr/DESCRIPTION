@@ -15,6 +15,7 @@ Description: This package is designed to work with the workflow published by
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports: IlluminaHumanMethylation450kanno.ilmn12.hg19, SummarizedExperiment
 Suggests: knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0
