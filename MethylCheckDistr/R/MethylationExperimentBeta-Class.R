@@ -8,7 +8,7 @@
 #' @docType class
 #' @exportClass MethylationExperimentBeta
 .MethylationExperimentBeta <- setClass(
-    Class = "MethylationExperimentLimma",
+    Class = "MethylationExperimentBeta",
     contains = "MethylationExperiment"
 )
 
