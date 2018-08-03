@@ -11,7 +11,6 @@ This is a VIRTUAL class that extends SummarizedExperiment to
    analysis pipeline, e. g., raw, normalized, filtered objects, etc. This
    class is then extended into concrete clases according to the distribution
    imposed in the analysis, i. e., normal (limma style), beta (betareg style)
-   or any other distribution based implemented class.
    or any other distribution based implemented class. In this context,
    whatever thet fitted model is, it will be included in the features
    (rowData) as "model" column, where the fit itself is represented as a list.

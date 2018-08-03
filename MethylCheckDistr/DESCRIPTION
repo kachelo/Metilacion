@@ -3,7 +3,7 @@ Type: Package
 Title: Check the types of distributions of methylation signals
 Version: 0.1.0
 Author: María Semiramis Castro Jaimes, Cristóbal Fresno Rodríguez,
-    José Angel Islas Angiano, David Felipe Rendón Luna
+    José Ángel Islas Anguiano, David Felipe Rendón Luna
 Maintainer: Semiramis <semiramis.cj@gmail.com>
 Description: This package is designed to work with the workflow published by 
     Oshlack et al.(doi:10.12688/f1000research.8839.3). Methylation array data
