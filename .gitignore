@@ -54,5 +54,7 @@ Metilacion/data/Maksimovic/data/*.Rdata
 Metilacion/data/Maksimovic/data/*.txt
 Metilacion/data/Maksimovic/data/
 
+.DS_Store
+
 .Rcion/proj.user
 .Rproj.user
