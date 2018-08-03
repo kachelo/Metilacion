@@ -1,7 +1,7 @@
 context("MethylationExperiment")
 
 test_that(
-    "MethylationExperiment",
+    "MethylationExperiment cannot be created",
     {
         expect_error(new("MethylationExperiment"))
     }
