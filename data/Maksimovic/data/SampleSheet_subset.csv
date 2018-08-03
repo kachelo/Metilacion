@@ -1,6 +1,0 @@
-Sample_Name,Sample_Well,Sample_Source,Sample_Group,Sample_Label,Pool_ID,Sentrix_ID,Sentrix_Position
-1,A1,M28,naive,naive,,6264509100,R01C01
-3,C1,M28,act_naive,act_naive,,6264509100,R03C01
-4,D1,M29,naive,naive,,6264509100,R04C01
-5,E1,M29,act_naive,act_naive,,6264509100,R05C01
-11,H06,VICS-72098-18-B,birth,birth,,5975827018,R06C02
