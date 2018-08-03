@@ -5,7 +5,7 @@ author:
   affiliation: "Centro de Ciencias Genómicas, Universidad Nacional Autónoma de México"
 - name: "Cristóbal Fresno Rodríguez"
   affiliation: "Instituto Nacional de Medicina Genómica" 
-- name: "José Angel Islas Angiano"
+- name: "José Ángel Islas Anguiano"
   affiliation: "Universidad Autónoma de Sinaloa" 
 - name: "David Felipe Rendón Luna"
   affiliation: "Instituto de Biotecnología, Universidad Nacional Autónoma de México"  
