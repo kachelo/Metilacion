@@ -1,0 +1,25 @@
+Relation_to_Island	UCSC_RefGene_Group	cpg_ID	Sample_Source	Sample_Group
+Island	Body	cg00000957	M28	naive
+Island	TSS200	cg00001349	M28	naive
+Island	Body;Body	cg00001583	M28	naive
+N_Shore	1stExon;5'UTR	cg00002028	M28	naive
+Island	TSS200	cg00002719	M28	naive
+OpenSea		cg00002837	M28	naive
+Island	Body	cg00000957	M28	act_naive
+Island	TSS200	cg00001349	M28	act_naive
+Island	Body;Body	cg00001583	M28	act_naive
+N_Shore	1stExon;5'UTR	cg00002028	M28	act_naive
+Island	TSS200	cg00002719	M28	act_naive
+OpenSea		cg00002837	M28	act_naive
+Island	Body	cg00000957	M29	naive
+Island	TSS200	cg00001349	M29	naive
+Island	Body;Body	cg00001583	M29	naive
+N_Shore	1stExon;5'UTR	cg00002028	M29	naive
+Island	TSS200	cg00002719	M29	naive
+OpenSea		cg00002837	M29	naive
+Island	Body	cg00000957	M29	act_naive
+Island	TSS200	cg00001349	M29	act_naive
+Island	Body;Body	cg00001583	M29	act_naive
+N_Shore	1stExon;5'UTR	cg00002028	M29	act_naive
+Island	TSS200	cg00002719	M29	act_naive
+OpenSea		cg00002837	M29	act_naive
