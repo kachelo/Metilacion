@@ -16,6 +16,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: IlluminaHumanMethylation450kanno.ilmn12.hg19, SummarizedExperiment
-Suggests: knitr, rmarkdown, BiocStyle
+Depends: methods
+Suggests: knitr, rmarkdown, BiocStyle, testthat
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0
