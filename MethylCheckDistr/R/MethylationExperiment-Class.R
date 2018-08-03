@@ -11,6 +11,7 @@
 #'    (rowData) as "model" column, where the fit itself is represented as a list.
 #' @docType class
 #' @importClassesFrom SummarizedExperiment SummarizedExperiment
+#' @importFrom methods new
 #' @exportClass MethylationExperiment
 setClass(
     Class = "MethylationExperiment",
